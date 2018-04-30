@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>Goals Tracker</title>
+    </head>
+    <body>
+        <div>
+            <h1>Goal #{{ goal.goal_text }} - Detail</h1>
+        </div>
+
+        <div>
+            <p>Here is the list of all your daily tracks for this goal:</p>
+            {% if track_list %}
+                <ul>
+                    {% for track in track_list %}
+                    <li>{{ track.date }} - {{ track.track_score }} - {{ track.comment_text }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No tracks are defined.</p>
+            {% endif %}
+        </div>
+
+        <div>
+            <form action="{% url 'goals:tracks' goal.id %}" method="post">
+            {% csrf_token %}
+                <fieldset>
+                    <legend>Add today's track</legend>
+                    <!--<input type="date" name="date">-->
+                    <p>
+                        <input type="radio" name="score" id="score0" value="0" /><label for="score0">0 (bad)</label><br />
+                        <input type="radio" name="score" id="score1" value="1" /><label for="score1">1 (good)</label><br />
+                    </p> 
+                    <p>
+                        <input type="text" name="comment" placeholder="Optionnal comment...">
+                    </p>
+                    <input type="submit" value="Submit" />
+                </fieldset>
+            </form>
+        </div>
+    </body>
+</html>
+
