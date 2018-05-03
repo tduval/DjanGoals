@@ -1,11 +1,8 @@
-<html>
-    <head>
-        {% load static %}
-        <link rel="stylesheet" type="text/css" href="{% static 'goals/css/bootstrap.css' %}" />
+{% extends "base.html" %}
 
-        <title>Goals Tracker</title>
-    </head>
-    <body>
+{% block title %}My Goals Tracker{% endblock %}
+
+{% block content %}
         <div>
             <h1>Goals Index</h1>
         </div>
@@ -22,6 +19,4 @@
                 <p>No goals are defined.</p>
             {% endif %}
         </div>
-    </body>
-</html>
-
+{% endblock %}

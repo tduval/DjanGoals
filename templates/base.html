@@ -2,12 +2,24 @@
 <html>
 
     <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Language" value="en-US" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'goals/css/bootstrap.css' %}" />
+        {% block css_style %} {{ style }} {% endblock css_style %}
+    
         <title>{% block title %}Home {% endblock title %}</title>
-            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-            <meta http-equiv="Content-Language" value="en-US" />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel="stylesheet" type="text/css" href="{% static 'goals/css/bootstrap.css' %}" />
-            {% block css_style %} {{ style }} {% endblock css_style %}
     </head>
 
 
+    <body>
+        <div id="content">
+            {% block content %}{% endblock %}
+        </div>
+
+        <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+        {% block js_script %}{% endblock js_script %}
+    </body>
+</html>
