@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Login | My Goals Tracker{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-5">
+            {% if form.errors %}
+            <p>Your username and password didn't match. Please try again.</p>
+            {% endif %}
+
+            <form method="post" action="{% url 'login' %}" class="form-signin">
+                {% csrf_token %}
+                <label for="inputEmail" class="sr-only">Email address</label>
+                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                <label for="inputPassword" class="sr-only">Password</label>
+                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+            </form>
+            {# Assumes you setup the password_reset view in your URLconf #}
+            <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
