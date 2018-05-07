@@ -3,9 +3,9 @@ Initiation to Django with a simple apps to tracks daily custom goals
 
 ## Screenshot
 
-![Alt text](https://raw.githubusercontent.com/tduval/Learning-ML/master/LML%20-%20Data%20index.png "Dataset view")
+![Alt text](https://raw.githubusercontent.com/tduval/DjanGoals/master/DjanGoals-screenshot-Index.png "Index view")
 
-![Alt text](https://raw.githubusercontent.com/tduval/Learning-ML/master/LML%20-%20Linear%20Regression.png "Linear Regression Parameter View")
+![Alt text](https://raw.githubusercontent.com/tduval/DjanGoals/master/DjanGoals-screenshot-Details.png "Tracks View")
 
 ## Made from
 
