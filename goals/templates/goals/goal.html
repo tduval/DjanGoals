@@ -12,7 +12,11 @@
     {% if track_list %}
     <ul>
         {% for track in track_list %}
-        <li>{{ track.date }} - {{ track.track_score }} - {{ track.comment_text }}</li>
+            {% if track.track_score == 1 %}
+                <li class="bg-success text-white">{{ track.date }} - {{ track.track_score }} - {{ track.comment_text }}</li>
+            {% else %}
+                <li class="bg-danger text-white">{{ track.date }} - {{ track.track_score }} - {{ track.comment_text }}</li>
+            {% endif %}
         {% endfor %}
     </ul>
     {% else %}
@@ -27,8 +31,8 @@
             <legend>Add today's track</legend>
             <!--<input type="date" name="date">-->
             <p>
-                <input type="radio" name="score" id="score0" value="0" /><label for="score0">0 (bad)</label><br />
-                <input type="radio" name="score" id="score1" value="1" /><label for="score1">1 (good)</label><br />
+                <input type="radio" name="score" id="score0" value="0" /><label for="score0" class="bg-danger text-white">0 (bad)</label><br />
+                <input type="radio" name="score" id="score1" value="1" /><label for="score1" class="bg-success text-white">1 (good)</label><br />
             </p> 
             <p>
                 <input type="text" name="comment" placeholder="Optionnal comment...">

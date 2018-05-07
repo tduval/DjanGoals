@@ -19,10 +19,12 @@
 
         {% include 'goals/navbar.html' %}
 
-        <div id="content">
+        <div class="container text-center pt-3">
             {% block content %}{% endblock %}
         </div>
-
+        
+        <script type="text/javascript" src="{% static 'goals/js/jquery-3.3.1.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'goals/js/popper.min.js' %}"></script>
         <script type="text/javascript" src="{% static 'goals/js/bootstrap.js' %}"></script>
         {% block js_script %}{% endblock js_script %}
     </body>

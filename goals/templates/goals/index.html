@@ -7,16 +7,24 @@
             <h1>Goals Index</h1>
         </div>
 
-        <div>
-            <p>Here is the list of all your daily goals:</p>
-            {% if goal_list %}
-                <ul>
+        {% if goal_list %}
+        <p>Here is the list of all your daily goals:</p>
+        <div class="row">
                     {% for goal in goal_list %}
-                    <li><a href="{% url 'goals:goal' goal.id %}">{{ goal.goal_text }}</a></li>
+                    <div class="col-sm-4">
+                    <div class="card my-3">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ goal.goal_text }}</h5>
+                        </div>
+                        <div class="card-footer">
+                            <a href="{% url 'goals:goal' goal.id %}">View progress in detail</a>
+                        </div>
+                    </div>
+                    </div>
                     {% endfor %}
-                </ul>
-            {% else %}
-                <p>No goals are defined.</p>
-            {% endif %}
         </div>
+        {% else %}
+            <p>No goals are defined.</p>
+        {% endif %}
+        
 {% endblock %}
