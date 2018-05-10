@@ -5,8 +5,6 @@ from django.urls import reverse
 from .models import Goal
 from .models import Track
 
-# Create your views here.
-
 # index pages/default page displayed all Goals
 def index(request):
     goal_list = Goal.objects.all()
