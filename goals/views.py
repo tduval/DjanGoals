@@ -9,8 +9,12 @@ from .models import Track
 # index pages/default page displayed all Goals
 @login_required(login_url='/accounts/login/')
 def index(request):
-    goal_list = Goal.objects.filter(owner=request.user)
-    return render(request, 'goals/index.html', {'goal_list': goal_list})
+    if request.method == 'GET':
+        goal_list = Goal.objects.filter(owner=request.user)
+        return render(request, 'goals/index.html', {'goal_list': goal_list})
+    elif request.method == 'POST':
+        goal = Goal.objects.create(owner=request.user, goal_text=request.POST.get("AddGoal"), description_text="", start_date=datetime.date.today(), end_date=datetime.date.today().replace(year=9999))
+        return redirect('goals:index')
 
 # detail page of a specific goal with all his associated Tracks
 @login_required(login_url='/accounts/login/')

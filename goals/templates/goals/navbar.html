@@ -11,8 +11,9 @@
                 <a class="nav-link" href="{% url 'goals:index' %}">My Goals</a>
             </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0 mx-auto">
-            <input class="form-control mr-sm-2" type="text" placeholder="Add a new goal here" aria-label="AddGoal">
+        <form class="form-inline my-2 my-lg-0 mx-auto" action="{% url 'goals:index' %}" method="post">
+            {% csrf_token %}
+            <input class="form-control mr-sm-2" type="text" placeholder="Add a new goal here" aria-label="AddGoal" name="AddGoal">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Add</button>
         </form>
         <a class="nav-item nav-link text-white font-weight-light">{{ user }}</a>
