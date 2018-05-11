@@ -19,6 +19,16 @@
             </div>
             {% endif %}
 
+            {% if next %}
+            <div class="alert alert-info" role="alert">
+                {% if user.is_authenticated %}
+                Your account doesn't have access to this page, please login with an account that has access.
+                {% else %}
+                Please login with the following form to have access to the page.
+                {% endif %}
+            </div>
+            {% endif %}
+
             <div class="card px-3">
                 <div class="card-body">
                     <form method="post" action="{% url 'login' %}">
