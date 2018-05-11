@@ -12,12 +12,12 @@ def index(request):
     goal_list = Goal.objects.filter(owner=request.user)
     return render(request, 'goals/index.html', {'goal_list': goal_list})
 
-# Checks if the authenticvated user try to access their own goals and not someone else goals page
 # detail page of a specific goal with all his associated Tracks
 @login_required(login_url='/accounts/login/')
 def goal(request, goal_id):
     goal = Goal.objects.get(id=goal_id)
     if not goal.owner == request.user:
+        # Checks if the authenticvated user try to access their own goals and not someone else goals page
         return redirect('goals:index')
     track_list = Track.objects.filter(goal=goal_id)
     return render(request, 'goals/goal.html', {'goal': goal, 'track_list': track_list})
