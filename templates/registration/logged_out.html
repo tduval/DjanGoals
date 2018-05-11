@@ -1,0 +1,28 @@
+{% extends "base_registration.html" %}
+
+{% block title %}Logged out | My Goals Tracker{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <div class="row justify-content-center my-3 text-center">
+        <h2 class="display-2 text-success">DjanGoals</h2>
+
+    </div>
+
+    <div class="row justify-content-center my-3">
+        <div class="col-sm-5 align-self-center">
+            <div class="alert alert-info my-5" role="alert">
+                <p>You have been logged out.</p>
+            </div>
+
+            <div class="d-flex justify-content-between">
+                <a href="/">Go to the home page?</a>
+                <a href="{% url 'login' %}">Login in again?</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
