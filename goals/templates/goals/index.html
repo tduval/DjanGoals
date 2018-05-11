@@ -3,28 +3,28 @@
 {% block title %}My Goals Tracker{% endblock %}
 
 {% block content %}
-        <div>
-            <h1>Goals Index</h1>
-        </div>
+    <div>
+        <h1>Goals Index</h1>
+    </div>
 
-        {% if goal_list %}
-        <p>Here is the list of all your daily goals:</p>
-        <div class="row">
-                    {% for goal in goal_list %}
-                    <div class="col-sm-4">
-                    <div class="card my-3">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ goal.goal_text }}</h5>
-                        </div>
-                        <div class="card-footer">
-                            <a href="{% url 'goals:goal' goal.id %}">View progress in detail</a>
-                        </div>
-                    </div>
-                    </div>
-                    {% endfor %}
+    {% if goal_list %}
+    <p>Here is the list of all your daily goals:</p>
+    <div class="row justify-content-center">
+        {% for goal in goal_list %}
+        <div class="col-sm-4">
+            <div class="card my-3">
+                <div class="card-body">
+                    <h5 class="card-title">{{ goal.goal_text }}</h5>
+                </div>
+                <div class="card-footer">
+                    <a href="{% url 'goals:goal' goal.id %}">View progress in detail</a>
+                </div>
+            </div>
         </div>
-        {% else %}
-            <p>No goals are defined.</p>
-        {% endif %}
-        
+        {% endfor %}
+    </div>
+    {% else %}
+    <p>No goals are defined.</p>
+    {% endif %}
+
 {% endblock %}
