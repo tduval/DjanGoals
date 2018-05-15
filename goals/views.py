@@ -2,7 +2,9 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 import datetime
 from django.contrib.auth.decorators import login_required
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
+from django.contrib.auth.forms import UserCreationForm
+from django.views import generic
 from .models import Goal
 from .models import Track
 
@@ -36,3 +38,8 @@ def tracks(request, goal_id):
     track.save()
     return HttpResponseRedirect(reverse('goals:goal', args=(goal.id,)))
 
+
+class SignUp(generic.CreateView):
+    form_class = UserCreationForm
+    success_url = reverse_lazy('login')
+    template_name = 'registration/signup.html'
