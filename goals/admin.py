@@ -4,5 +4,9 @@ from .models import Goal, Track
 
 # Register your models here.
 
-admin.site.register(Goal)
+class GoalAdmin(admin.ModelAdmin):
+    list_display = ('goal_text', 'owner', 'start_date', 'end_date')
+
+admin.site.register(Goal, GoalAdmin)
 admin.site.register(Track)
+
